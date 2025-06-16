@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1048175666591",
+    "project_id": "garnetbool",
+    "storage_bucket": "garnetbool.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048175666591:android:785ea5f53878b10acdc9aa",
+        "android_client_info": {
+          "package_name": "com.example.apple"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048175666591-jb9pvb0uen91sshhp1smlsh7lc4fvkvg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.apple",
+            "certificate_hash": "4fd2e4f28c6b982ff2124cfa6bb96a748482fab8"
+          }
+        },
+        {
+          "client_id": "1048175666591-028ck40qgrtm4mq0jtqck72ra997ade9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKGPB7FokbOWPyu3qqVimtNZ3W3Ay4ZTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048175666591-028ck40qgrtm4mq0jtqck72ra997ade9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1048175666591-2pnacv22kp5ngq2pu883f3at2a2pq2gj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.longLife"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
