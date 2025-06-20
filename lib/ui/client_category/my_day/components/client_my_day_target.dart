@@ -5,10 +5,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:garnetbook/bloc/client/target/target_bloc.dart';
 import 'package:garnetbook/data/models/client/target/target_view_model.dart';
+import 'package:garnetbook/domain/services/survey/survey_services.dart';
 import 'package:garnetbook/ui/routing/app_router.dart';
 import 'package:garnetbook/utils/colors.dart';
 import 'package:garnetbook/widgets/buttons/form_for_button.dart';
 import 'package:garnetbook/widgets/percents/prossent_bar_small.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 
 class ClientMyDayTarget extends StatefulWidget {
   const ClientMyDayTarget({Key? key}) : super(key: key);
@@ -66,42 +68,70 @@ class _ClientMyDayTargetState extends State<ClientMyDayTarget> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              FormForButton(
-                                borderRadius: BorderRadius.circular(4.r),
-                                onPressed: () {
-                                  context.router
-                                      .navigate(ClientMainContainerRoute(children: [ClientMainMainRoute(), ClientSetTargetRoute()]));
-                                },
-                                child: Container(
-                                  height: 36.h,
-                                  width: 140.w,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4.r),
-                                    border: Border.all(color: AppColors.darkGreenColor, width: 1),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SvgPicture.asset(
-                                        'assets/images/add.svg',
-                                        height: 10.h,
-                                        color: AppColors.darkGreenColor,
-                                      ),
-                                      SizedBox(width: 4.w),
-                                      Text(
-                                        'Добавить цель'.toUpperCase(),
-                                        style: TextStyle(
-                                          fontFamily: 'Inter',
-                                          color: AppColors.darkGreenColor,
-                                          fontSize: 12.sp,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                              // FormForButton(
+                              //   borderRadius: BorderRadius.circular(4.r),
+                              //   onPressed: () async {
+                              //     context.loaderOverlay.show();
+
+                              //     final service = SurveyServices();
+
+                              //     final response = await service.getSubscribe(8);
+
+                              //     if (response.result) {
+                              //       context.loaderOverlay.hide();
+
+                              //       if (response.value?.stepType == "branching") {
+                              //         if (response.value?.nextSteps != null && response.value!.nextSteps!.isNotEmpty) {
+                              //           context.router.push(ClientSetTargetWeightRoute(nextStep: response.value!.nextSteps!));
+                              //         }
+                              //       }
+                              //     } else {
+                              //       context.loaderOverlay.hide();
+                              //       ScaffoldMessenger.of(context).showSnackBar(
+                              //         SnackBar(
+                              //           duration: Duration(seconds: 3),
+                              //           content: Text(
+                              //             'Произошла ошибка. Попробуйте повторить позже',
+                              //             style: TextStyle(
+                              //               fontWeight: FontWeight.w400,
+                              //               fontSize: 14.sp,
+                              //               fontFamily: 'Inter',
+                              //             ),
+                              //           ),
+                              //         ),
+                              //       );
+                              //     }
+                              //   },
+                              //   child: Container(
+                              //     height: 36.h,
+                              //     width: 140.w,
+                              //     decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(4.r),
+                              //       border: Border.all(color: AppColors.darkGreenColor, width: 1),
+                              //     ),
+                              //     child: Row(
+                              //       mainAxisSize: MainAxisSize.min,
+                              //       mainAxisAlignment: MainAxisAlignment.center,
+                              //       children: [
+                              //         SvgPicture.asset(
+                              //           'assets/images/add.svg',
+                              //           height: 10.h,
+                              //           color: AppColors.darkGreenColor,
+                              //         ),
+                              //         SizedBox(width: 4.w),
+                              //         Text(
+                              //           'Добавить цель'.toUpperCase(),
+                              //           style: TextStyle(
+                              //             fontFamily: 'Inter',
+                              //             color: AppColors.darkGreenColor,
+                              //             fontSize: 12.sp,
+                              //             fontWeight: FontWeight.w700,
+                              //           ),
+                              //         ),
+                              //       ],
+                              //     ),
+                              //   ),
+                              // ),
                               SizedBox(height: 10.h),
                               if (targetsList.isNotEmpty)
                                 Column(

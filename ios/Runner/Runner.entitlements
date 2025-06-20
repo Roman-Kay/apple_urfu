@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>webcredentials:apple.com</string>
+		<string>webcredentials:garnetbook.com</string>
 	</array>
 	<key>com.apple.developer.healthkit</key>
 	<true/>

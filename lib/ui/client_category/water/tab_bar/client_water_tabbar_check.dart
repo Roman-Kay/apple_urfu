@@ -51,7 +51,6 @@ class _ClientWaterTabBarWatterCheckState extends State<ClientWaterTabBarWatterCh
                   physics: AlwaysScrollableScrollPhysics(),
                   child: Column(
                     children: [
-
                       SizedBox(height: 16.h),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 14.w),
@@ -61,124 +60,118 @@ class _ClientWaterTabBarWatterCheckState extends State<ClientWaterTabBarWatterCh
                           child: BackdropFilter(
                             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                             child: Container(
-                              color: AppColors.basicwhiteColor.withValues(alpha: 0.8),
-                              child: Column(
-                                children: [
-                                  SizedBox(height: 16.h),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 12.w),
-                                    child: CalendarRow(
-                                      selectedDate: selectedDate,
-                                      onPressedDateCon: () {
-                                        DatePickerBdaya.showDatePicker(
-                                          context,
-                                          showTitleActions: true,
-                                          minTime: DateTime(DateTime.now().year - 1, DateTime.now().month, DateTime.now().day),
-                                          maxTime: DateTime(
-                                            DateTime.now().year,
-                                            DateTime.now().month,
-                                            DateTime.now().day,
-                                          ),
-                                          onConfirm: (newDate) {
+                                color: AppColors.basicwhiteColor.withValues(alpha: 0.8),
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 16.h),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 12.w),
+                                      child: CalendarRow(
+                                        selectedDate: selectedDate,
+                                        onPressedDateCon: () {
+                                          DatePickerBdaya.showDatePicker(
+                                            context,
+                                            showTitleActions: true,
+                                            minTime: DateTime(DateTime.now().year - 1, DateTime.now().month, DateTime.now().day),
+                                            maxTime: DateTime(
+                                              DateTime.now().year,
+                                              DateTime.now().month,
+                                              DateTime.now().day,
+                                            ),
+                                            onConfirm: (newDate) {
+                                              setState(() {
+                                                selectedDate = newDate;
+                                              });
+                                              context.read<WaterDiaryBloc>().add(WaterDiaryCheckEvent(selectedDate));
+                                            },
+                                            currentTime: selectedDate,
+                                            locale: LocaleType.ru,
+                                          );
+                                        },
+                                        onPressedLeft: () {
+                                          setState(() {
+                                            selectedDate = selectedDate.subtract(Duration(days: 1));
+                                          });
+                                          context.read<WaterDiaryBloc>().add(WaterDiaryCheckEvent(selectedDate));
+                                        },
+                                        onPressedRight: () {
+                                          if (selectedDate.add(Duration(days: 1)).isAfter(DateTime.now())) {
+                                            ScaffoldMessenger.of(context).showSnackBar(
+                                              SnackBar(
+                                                duration: Duration(seconds: 3),
+                                                content: Text(
+                                                  'Невозможно узнать будущие показатели',
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 14.sp,
+                                                    fontFamily: 'Inter',
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          } else {
                                             setState(() {
-                                              selectedDate = newDate;
+                                              selectedDate = selectedDate.add(Duration(days: 1));
                                             });
                                             context.read<WaterDiaryBloc>().add(WaterDiaryCheckEvent(selectedDate));
-                                          },
-                                          currentTime: selectedDate,
-                                          locale: LocaleType.ru,
-                                        );
-
-                                      },
-                                      onPressedLeft: () {
-                                        setState(() {
-                                          selectedDate = selectedDate.subtract(Duration(days: 1));
-                                        });
-                                        context.read<WaterDiaryBloc>().add(WaterDiaryCheckEvent(selectedDate));
-                                      },
-                                      onPressedRight: () {
-                                        if (selectedDate.add(Duration(days: 1)).isAfter(DateTime.now())) {
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                            SnackBar(
-                                              duration: Duration(seconds: 3),
-                                              content: Text(
-                                                'Невозможно узнать будущие показатели',
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 14.sp,
-                                                  fontFamily: 'Inter',
+                                          }
+                                        },
+                                      ),
+                                    ),
+                                    SizedBox(height: 12.h),
+                                    Container(
+                                      height: 1,
+                                      color: AppColors.basicwhiteColor,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: 14.w),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            'Вы выпили воды',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 16.sp,
+                                                color: AppColors.darkGreenColor,
+                                                fontFamily: "Inter"),
+                                          ),
+                                          Expanded(
+                                            child: SizedBox(
+                                              width: 300.w,
+                                              child: FittedBox(
+                                                fit: BoxFit.scaleDown,
+                                                child: Row(
+                                                  children: [
+                                                    SizedBox(width: 10.w),
+                                                    Text(
+                                                      '1200',
+                                                      style: TextStyle(
+                                                          fontWeight: FontWeight.w600,
+                                                          fontSize: 62.sp,
+                                                          color: AppColors.blueSecondaryColor,
+                                                          fontFamily: "Inter"),
+                                                    ),
+                                                    SizedBox(width: 10.w),
+                                                    Text(
+                                                      'мл',
+                                                      style: TextStyle(
+                                                        fontWeight: FontWeight.w400,
+                                                        fontSize: 14.sp,
+                                                        fontFamily: "Inter",
+                                                        color: AppColors.blueSecondaryColor,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ),
-                                          );
-                                        }
-                                        else {
-                                          setState(() {
-                                            selectedDate = selectedDate.add(Duration(days: 1));
-                                          });
-                                          context.read<WaterDiaryBloc>().add(WaterDiaryCheckEvent(selectedDate));
-                                        }
-
-                                      },
-                                    ),
-                                  ),
-                                  SizedBox(height: 12.h),
-                                  Container(
-                                    height: 1,
-                                    color: AppColors.basicwhiteColor,
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 14.w),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          'Вы выпили воды',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 16.sp,
-                                            color: AppColors.darkGreenColor,
-                                            fontFamily: "Inter"
                                           ),
-                                        ),
-                                        Expanded(
-                                          child: SizedBox(
-                                            width: 300.w,
-                                            child: FittedBox(
-                                              fit: BoxFit.scaleDown,
-                                              child: Row(
-                                                children: [
-                                                  SizedBox(width: 10.w),
-                                                  Text(
-                                                    "${state.today == null ? '0' : state.today?.dayVal ?? "0"}",
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.w600,
-                                                        fontSize: 62.sp,
-                                                        color: AppColors.blueSecondaryColor,
-                                                        fontFamily: "Inter"
-                                                    ),
-                                                  ),
-                                                  SizedBox(width: 10.w),
-                                                  Text(
-                                                    'мл',
-                                                    style: TextStyle(
-                                                      fontWeight: FontWeight.w400,
-                                                      fontSize: 14.sp,
-                                                      fontFamily: "Inter",
-                                                      color: AppColors.blueSecondaryColor,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              )
-                            ),
+                                  ],
+                                )),
                           ),
                         ),
                       ),
@@ -221,7 +214,7 @@ class _ClientWaterTabBarWatterCheckState extends State<ClientWaterTabBarWatterCh
                               ),
                             ),
                             RadialPercentWidget(
-                              percent: state.today == null ? 0 : calculatePercent(state.today?.dayVal, state.dayTarget),
+                              percent: state.today == null ? 0 : calculatePercent(1200, state.dayTarget),
                               lineColor: AppColors.basicwhiteColor.withOpacity(0.1), //
                               boxShadowColor: AppColors.basicwhiteColor.withOpacity(0.1), //
                               freePaintColor: AppColors.basicwhiteColor.withOpacity(0.6), //
@@ -324,8 +317,7 @@ class _ClientWaterTabBarWatterCheckState extends State<ClientWaterTabBarWatterCh
                   ),
                 ),
               );
-            }
-            else if (state is WaterDiaryErrorState) {
+            } else if (state is WaterDiaryErrorState) {
               return SizedBox(
                 height: MediaQuery.of(context).size.height / 1.6,
                 child: ErrorWithReload(
@@ -335,8 +327,7 @@ class _ClientWaterTabBarWatterCheckState extends State<ClientWaterTabBarWatterCh
                   },
                 ),
               );
-            }
-            else if (state is WaterDiaryLoadingState) {
+            } else if (state is WaterDiaryLoadingState) {
               return SizedBox(height: MediaQuery.of(context).size.height / 1.6, child: ProgressIndicatorWidget(isWhite: true));
             }
             return Container();
@@ -404,9 +395,7 @@ class _ClientWaterTabBarWatterCheckState extends State<ClientWaterTabBarWatterCh
               );
             }
             return Container();
-
-            }
-          ),
+          }),
         ],
       );
     });

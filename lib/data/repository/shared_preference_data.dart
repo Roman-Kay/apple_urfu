@@ -1,9 +1,47 @@
-
 import 'dart:convert';
 
 import 'package:garnetbook/data/models/expert/recommendation/recommendation_model_store.dart';
 import 'package:garnetbook/data/models/survey/survey_branching_store/survey_branching_store.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+class CounterService {
+  static final CounterService _instance = CounterService._internal();
+
+  factory CounterService() {
+    return _instance;
+  }
+
+  CounterService._internal();
+
+  final SharedPreferenceData _storage = SharedPreferenceData.getInstance();
+
+  int _counter = 0;
+
+  // Инициализация: загрузить значение из памяти
+  Future<void> init() async {
+    String? value = await _storage.getItem('welcomeDialogCounter');
+    if (value == null) {
+      _counter = 0;
+    } else {
+      _counter = int.tryParse(value) ?? 0;
+    }
+  }
+
+  // Получить текущее значение
+  int get counter => _counter;
+
+  // Увеличить счетчик на 10 и сохранить
+  Future<void> increment() async {
+    _counter += 10;
+    await _storage.setItem('welcomeDialogCounter', _counter.toString());
+  }
+
+  // Увеличить счетчик на 10 и сохранить
+  Future<void> incrementBig() async {
+    _counter += 30;
+    await _storage.setItem('welcomeDialogCounter', _counter.toString());
+  }
+}
 
 class SharedPreferenceData {
   static const tokenKey = "token_key";
@@ -36,11 +74,9 @@ class SharedPreferenceData {
   //recommendation
   static const recommendationBranching = "recommendationBranching";
 
-
   static SharedPreferenceData? _instance;
   factory SharedPreferenceData.getInstance() => _instance ??= SharedPreferenceData._internal();
   SharedPreferenceData._internal();
-
 
   Future<bool> setToken(final String? token) => setItem(tokenKey, token);
 
@@ -49,7 +85,6 @@ class SharedPreferenceData {
   Future<bool> setUserId(String? userId) => setItem(userIdKey, userId);
 
   Future<String> getUserId() => getItem(userIdKey);
-
 
   Future<bool> setItem(final String key, final String? item) async {
     final sp = await SharedPreferences.getInstance();
@@ -62,7 +97,6 @@ class SharedPreferenceData {
     return sp.getString(key) ?? '';
   }
 
-
   saveObject(value, String name) async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setString(name, json.encode(value) ?? "");
@@ -73,7 +107,7 @@ class SharedPreferenceData {
     final prefs = await SharedPreferences.getInstance();
     String value = prefs.getString(surveyBranching) ?? "";
 
-    if(value != ""){
+    if (value != "") {
       return value != "" ? SurveyBranchingList.fromJson(json.decode(value.trim())) : null;
     }
     return null;
@@ -84,11 +118,10 @@ class SharedPreferenceData {
     final prefs = await SharedPreferences.getInstance();
     String value = prefs.getString(recommendationBranching) ?? "";
 
-    if(value != ""){
+    if (value != "") {
       Map<String, dynamic> valueMap = json.decode(value.trim());
       return value != "" ? RecommendationItemStore.fromJson(valueMap) : null;
     }
     return null;
   }
-
 }

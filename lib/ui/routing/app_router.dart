@@ -5,6 +5,8 @@ import 'package:garnetbook/data/models/client/food_diary/food_diary_model.dart';
 
 import 'package:garnetbook/data/models/others/file_view.dart';
 import 'package:garnetbook/data/models/survey/q_type_view/subsribe_view.dart';
+import 'package:garnetbook/data/models/survey/quiz_model.dart';
+import 'package:garnetbook/data/models/survey/survey_branching_store/survey_branching_store.dart';
 
 import 'package:garnetbook/ui/auth/auth/auth_container.dart';
 import 'package:garnetbook/ui/auth/auth/auth_login_screen.dart';
@@ -13,6 +15,7 @@ import 'package:garnetbook/ui/auth/register/auth_register_screen.dart';
 import 'package:garnetbook/ui/auth/register/auth_register_screen_second.dart';
 import 'package:garnetbook/ui/auth/register/fourth/auth_register_screen_client_fourth.dart';
 import 'package:garnetbook/ui/auth/register/third/auth_register_screen_client_third.dart';
+import 'package:garnetbook/ui/auth/auth/auth_splash_screen.dart';
 
 import 'package:garnetbook/ui/client_category/food_diary/components/client_food_diary_list_meal.dart';
 import 'package:garnetbook/ui/client_category/food_diary/diets/client_food_diary_diet_main_screen.dart';
@@ -22,6 +25,13 @@ import 'package:garnetbook/ui/client_category/food_diary/screens/client_food_dia
 import 'package:garnetbook/ui/client_category/profile/client_profile_container_screen.dart';
 
 import 'package:garnetbook/ui/client_category/recomendation/screens/client_recommendation_platform_single_screen.dart';
+import 'package:garnetbook/ui/client_category/survey/balance_wheel/client_survey_balance_wheel_screen.dart';
+import 'package:garnetbook/ui/client_category/survey/client_survey_main_screen.dart';
+import 'package:garnetbook/ui/client_category/survey/screens/client_physical_survey_screen.dart';
+import 'package:garnetbook/ui/client_category/survey/screens/client_survey_all_info_screen.dart';
+import 'package:garnetbook/ui/client_category/survey/screens/client_survey_branching_screen.dart';
+import 'package:garnetbook/ui/client_category/survey/screens/client_survey_done_screen.dart';
+import 'package:garnetbook/ui/client_category/survey/screens/client_survey_watch_screen.dart';
 
 import 'package:garnetbook/ui/client_category/target/screens/client_set_personal_plan_screen.dart';
 import 'package:garnetbook/ui/client_category/target/screens/client_set_target_screen.dart';
@@ -185,6 +195,7 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(page: AuthLoginRoute.page),
             AutoRoute(page: AuthPaidSubscriptionRoute.page),
+            AutoRoute(page: SplashMotivationRoute.page, initial: true),
 
             AutoRoute(page: AuthRegisterRouteSecond.page),
             AutoRoute(page: AuthRegisterRouteClientThird.page),

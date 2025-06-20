@@ -157,6 +157,12 @@ class _ClientSetTargetWeightScreenState extends State<ClientSetTargetWeightScree
                                                 break;
                                               }
                                             }
+                                            if (nextId != null && widget.nextStep[index].title != null) {
+                                              context.router.push(
+                                                  ClientSurveyBranchingRoute(stepId: nextId, targetType: widget.nextStep[index].title!));
+                                            } else {
+                                              validate(widget.nextStep[index].type, widget.nextStep[index].title);
+                                            }
                                           } else {
                                             validate(widget.nextStep[index].type, widget.nextStep[index].title);
                                           }

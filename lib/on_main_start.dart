@@ -1,6 +1,6 @@
-import 'package:apple/domain/analytics/service_analytics.dart';
-import 'package:apple/domain/config/environment.dart';
-import 'package:apple/domain/service_locator/service_locator.dart';
+import 'package:garnetbook/domain/analytics/service_analytics.dart';
+import 'package:garnetbook/domain/config/environment.dart';
+import 'package:garnetbook/domain/service_locator/service_locator.dart';
 import 'package:get_it/get_it.dart';
 
 class OnMainStart {

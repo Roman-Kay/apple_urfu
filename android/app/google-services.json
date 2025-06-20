@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1048175666591:android:785ea5f53878b10acdc9aa",
         "android_client_info": {
-          "package_name": "com.example.apple"
+          "package_name": "com.example.garnetbook"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "1048175666591-jb9pvb0uen91sshhp1smlsh7lc4fvkvg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.apple",
+            "package_name": "com.example.garnetbook",
             "certificate_hash": "4fd2e4f28c6b982ff2124cfa6bb96a748482fab8"
           }
         },

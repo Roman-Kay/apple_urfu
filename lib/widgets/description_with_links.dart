@@ -9,7 +9,7 @@ class DescriptionWithLinks extends StatelessWidget {
 
   const DescriptionWithLinks({super.key, required this.text});
 
-  static const String linkText = '(ССЫЛКА)';
+  static const String linkText = '( )';
   static const String url = 'https://www.youtube.com/watch?v=SUiMr3h50_g';
 
   @override

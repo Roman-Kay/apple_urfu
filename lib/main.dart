@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_pushed_messaging/flutter_pushed_messaging.dart';
-import 'package:apple/data/models/notificaton/notification_message_model.dart';
-import 'package:apple/data/repository/shared_preference_data.dart';
-import 'package:apple/domain/services/notification/notification_service.dart';
-import 'package:apple/on_main_start.dart';
-import 'package:apple/ui/routing/app_router.dart';
+import 'package:garnetbook/data/models/notificaton/notification_message_model.dart';
+import 'package:garnetbook/data/repository/shared_preference_data.dart';
+import 'package:garnetbook/domain/services/notification/notification_service.dart';
+import 'package:garnetbook/on_main_start.dart';
+import 'package:garnetbook/ui/routing/app_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 import 'firebase_options.dart';
@@ -22,14 +22,10 @@ Future<void> backgroundMessage(Map<dynamic, dynamic> message) async {
   final notificationService = NotificationService();
   final storage = SharedPreferenceData.getInstance();
 
-  final role = await storage.getItem(SharedPreferenceData.role);
   String profileId = "";
-
-  if (role == "1") {
-    profileId = await storage.getItem(SharedPreferenceData.clientIdKey);
-  } else if (role == "2") {
-    profileId = await storage.getItem(SharedPreferenceData.expertIdKey);
-  }
+  final counterService = CounterService();
+  await counterService.init(); // Загрузка значения счетчика из памяти
+  profileId = await storage.getItem(SharedPreferenceData.clientIdKey);
 
   var messageData = jsonEncode(message);
   Map<String, dynamic> valueMap = json.decode(messageData.trim());
@@ -63,11 +59,19 @@ Future<void> backgroundMessage(Map<dynamic, dynamic> message) async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final counterService = CounterService();
+  await counterService.init(); // Загрузить значение из памяти
+
+  int currentCount = counterService.counter;
+  print('Текущее значение счетчика: $currentCount');
+
+  print('Новое значение счетчика: ${counterService.counter}');
   await Firebase.initializeApp(name: "garnetbool", options: DefaultFirebaseOptions.currentPlatform);
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await FlutterPushedMessaging.init(backgroundMessage);
   OnMainStart().main();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+
   runApp(MyApp());
 }
 

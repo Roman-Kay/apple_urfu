@@ -5,9 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:garnetbook/bloc/client/version/version_cubit.dart';
+import 'package:garnetbook/domain/services/survey/survey_services.dart';
 import 'package:garnetbook/ui/routing/app_router.dart';
 import 'package:garnetbook/utils/colors.dart';
 import 'package:garnetbook/widgets/buttons/form_for_button.dart';
+import 'package:garnetbook/widgets/containers/target_container.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 
 @RoutePage()
 class ClientMainMainScreen extends StatelessWidget {
@@ -34,16 +37,45 @@ class ClientMainMainScreen extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                mainCardContainer(
-                  notificationLength: null,
-                  index: 0,
-                  text: 'Моя цель',
-                  needBlurForFreeVersion: true,
-                  image: 'assets/images/main/target.png',
-                  onPressed: () {
-                    context.router.push(ClientSetTargetRoute());
-                  },
-                ),
+                // mainCardContainer(
+                //   notificationLength: null,
+                //   index: 0,
+                //   text: 'Моя цель',
+                //   needBlurForFreeVersion: true,
+                //   image: 'assets/images/main/target.png',
+                //   onPressed: () async {
+                //     context.loaderOverlay.show();
+
+                //     final service = SurveyServices();
+
+                //     final response = await service.getSubscribe(8);
+
+                //     if (response.result) {
+                //       context.loaderOverlay.hide();
+
+                //       if (response.value?.stepType == "branching") {
+                //         if (response.value?.nextSteps != null && response.value!.nextSteps!.isNotEmpty) {
+                //           context.router.push(ClientSetTargetWeightRoute(nextStep: response.value!.nextSteps!));
+                //         }
+                //       }
+                //     } else {
+                //       context.loaderOverlay.hide();
+                //       ScaffoldMessenger.of(context).showSnackBar(
+                //         SnackBar(
+                //           duration: Duration(seconds: 3),
+                //           content: Text(
+                //             'Произошла ошибка. Попробуйте повторить позже',
+                //             style: TextStyle(
+                //               fontWeight: FontWeight.w400,
+                //               fontSize: 14.sp,
+                //               fontFamily: 'Inter',
+                //             ),
+                //           ),
+                //         ),
+                //       );
+                //     }
+                //   },
+                // ),
                 // mainCardContainer(
                 //   notificationLength: null,
                 //   index: 1,

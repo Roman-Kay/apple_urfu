@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:garnetbook/bloc/client/version/version_cubit.dart';
 import 'package:garnetbook/bloc/user/user_data_cubit.dart';
+import 'package:garnetbook/data/repository/shared_preference_data.dart';
 import 'package:garnetbook/domain/controllers/auth/auth_controller.dart';
 import 'package:garnetbook/ui/routing/app_router.dart';
 import 'package:garnetbook/utils/colors.dart';
@@ -22,14 +23,25 @@ class ClientProfileMainScreen extends StatefulWidget {
 class _ClientProfileMainScreenState extends State<ClientProfileMainScreen> {
   String name = "";
   var avatar;
+  int _counterValue = 0;
+
+  final CounterService _counterService = CounterService();
 
   @override
   void initState() {
     if (BlocProvider.of<UserDataCubit>(context).state is UserDataLoadedState) {
     } else {
       context.read<UserDataCubit>().check();
-    }
+    } // Загрузка счётчика из памяти
+    _loadCounter();
     super.initState();
+  }
+
+  Future<void> _loadCounter() async {
+    await _counterService.init();
+    setState(() {
+      _counterValue = _counterService.counter;
+    });
   }
 
   @override
@@ -143,7 +155,55 @@ class _ClientProfileMainScreenState extends State<ClientProfileMainScreen> {
                           ],
                         ),
                       ),
-                      SizedBox(height: 18.h),
+                      SizedBox(height: 30.h),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 14.w),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.9),
+                            borderRadius: BorderRadius.circular(12.r),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 8,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          padding: EdgeInsets.symmetric(horizontal: 16.w),
+                          child: SizedBox(
+                            height: 64.h,
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.countertops_outlined,
+                                  color: AppColors.vivaMagentaColor,
+                                  size: 28.sp,
+                                ),
+                                SizedBox(width: 4.w),
+                                Text(
+                                  'Текущие сумма баллов:',
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.darkGreenColor,
+                                  ),
+                                ),
+                                const Spacer(),
+                                Text(
+                                  '$_counterValue',
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w600,
+                                    color: AppColors.darkGreenColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                       ProfilePagesCard(
                         text: 'О платформе',
                         title: 'Узнать больше о нас',

@@ -9,7 +9,6 @@ import 'package:garnetbook/utils/images.dart';
 import 'tab_bar/client_recomendation_main_tabbar_from_platform.dart';
 import 'tab_bar/client_recomendation_main_tabbar_from_specialist.dart';
 
-
 @RoutePage()
 class ClientRecommendationMainScreen extends StatefulWidget {
   const ClientRecommendationMainScreen({super.key, required this.isFormSurvey});
@@ -27,14 +26,15 @@ class _ClientRecommendationMainScreenState extends State<ClientRecommendationMai
   void initState() {
     tabController = TabController(length: 2, vsync: this);
 
-    if(widget.isFormSurvey){
+    if (widget.isFormSurvey) {
       context.read<PlatformRecommendationCubit>().check();
-    }
-    else if(BlocProvider.of<PlatformRecommendationCubit>(context).state is PlatformRecommendationLoadedState){}else{
+    } else if (BlocProvider.of<PlatformRecommendationCubit>(context).state is PlatformRecommendationLoadedState) {
+    } else {
       context.read<PlatformRecommendationCubit>().check();
     }
 
-    if(BlocProvider.of<RecommendationCubit>(context).state is RecommendationLoadedState){}else{
+    if (BlocProvider.of<RecommendationCubit>(context).state is RecommendationLoadedState) {
+    } else {
       context.read<RecommendationCubit>().check();
     }
 
@@ -56,9 +56,7 @@ class _ClientRecommendationMainScreenState extends State<ClientRecommendationMai
         height: double.infinity,
         width: double.infinity,
         decoration: BoxDecoration(
-          gradient: tabController.index == 0
-              ? AppColors.gradientBasikWhite
-              : AppColors.gradientTurquoiseReverse,
+          gradient: tabController.index == 0 ? AppColors.gradientBasikWhite : AppColors.gradientTurquoiseReverse,
         ),
         child: SafeArea(
           child: Column(
@@ -98,69 +96,8 @@ class _ClientRecommendationMainScreenState extends State<ClientRecommendationMai
                   ],
                 ),
               ),
-              SizedBox(height: 8.h),
-              SizedBox(
-                height: 56.h,
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Container(
-                          height: 1,
-                          width: double.infinity,
-                          color: AppColors.seaColor,
-                        ),
-                      ),
-                    ),
-                    TabBar(
-                      onTap: (i) => setState(() {}),
-                      indicatorColor: AppColors.darkGreenColor,
-                      controller: tabController,
-                      labelColor: AppColors.darkGreenColor,
-                      unselectedLabelColor: AppColors.darkGreenColor.withOpacity(0.5),
-                      indicatorSize: TabBarIndicatorSize.label,
-                      labelStyle: TextStyle(
-                        fontSize: 16.sp,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                      ),
-                      tabs: [
-                        SizedBox(
-                          width: 160.w,
-                          height: 56.h,
-                          child: FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: Tab(
-                              height: 56.h,
-                              text: 'от платформы',
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 160.w,
-                          height: 56.h,
-                          child: FittedBox(
-                            fit: BoxFit.scaleDown,
-                            child: Tab(
-                              height: 56.h,
-                              text: 'от специалиста',
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
               Expanded(
-                child: TabBarView(
-                  controller: tabController,
-                  children: [
-                    ClientRecommendationMainTabBarFromPlatform(),
-                    ClientRecommendationMainTabBarFromSpecialist(),
-                  ],
-                ),
+                child: ClientRecommendationMainTabBarFromPlatform(),
               ),
             ],
           ),

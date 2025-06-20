@@ -46,8 +46,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     AuthRegisterRouteClientThird.name: (routeData) {
-      final args = routeData.argsAs<AuthRegisterRouteClientThirdArgs>(
-          orElse: () => const AuthRegisterRouteClientThirdArgs());
+      final args = routeData.argsAs<AuthRegisterRouteClientThirdArgs>(orElse: () => const AuthRegisterRouteClientThirdArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: AuthRegisterScreenClientThird(
@@ -70,8 +69,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     BottomNavigationBarClientRoute.name: (routeData) {
-      final args = routeData.argsAs<BottomNavigationBarClientRouteArgs>(
-          orElse: () => const BottomNavigationBarClientRouteArgs());
+      final args = routeData.argsAs<BottomNavigationBarClientRouteArgs>(orElse: () => const BottomNavigationBarClientRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: BottomNavigationBarClientPage(
@@ -103,8 +101,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ClientCalendarAddNewEventRoute.name: (routeData) {
-      final args = routeData.argsAs<ClientCalendarAddNewEventRouteArgs>(
-          orElse: () => const ClientCalendarAddNewEventRouteArgs());
+      final args = routeData.argsAs<ClientCalendarAddNewEventRouteArgs>(orElse: () => const ClientCalendarAddNewEventRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ClientCalendarAddNewEventScreen(
@@ -200,8 +197,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ClientMainMainRoute.name: (routeData) {
-      final args = routeData.argsAs<ClientMainMainRouteArgs>(
-          orElse: () => const ClientMainMainRouteArgs());
+      final args = routeData.argsAs<ClientMainMainRouteArgs>(orElse: () => const ClientMainMainRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ClientMainMainScreen(key: args.key),
@@ -238,8 +234,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ClientMessagesMainRoute.name: (routeData) {
-      final args = routeData.argsAs<ClientMessagesMainRouteArgs>(
-          orElse: () => const ClientMessagesMainRouteArgs());
+      final args = routeData.argsAs<ClientMessagesMainRouteArgs>(orElse: () => const ClientMessagesMainRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ClientMessagesMainScreen(
@@ -255,11 +250,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ClientMyDayMainRoute.name: (routeData) {
-      final args = routeData.argsAs<ClientMyDayMainRouteArgs>(
-          orElse: () => const ClientMyDayMainRouteArgs());
+      final args = routeData.argsAs<ClientMyDayMainRouteArgs>(orElse: () => const ClientMyDayMainRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ClientMyDayMainScreen(key: args.key),
+      );
+    },
+    ClientPhysicalSurveyRoute.name: (routeData) {
+      final args = routeData.argsAs<ClientPhysicalSurveyRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ClientPhysicalSurveyScreen(
+          key: args.key,
+          stepId: args.stepId,
+        ),
       );
     },
     ClientProfileAboutPlatformRoute.name: (routeData) {
@@ -320,8 +324,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ClientRecommendationPlatformSingleRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<ClientRecommendationPlatformSingleRouteArgs>();
+      final args = routeData.argsAs<ClientRecommendationPlatformSingleRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ClientRecommendationPlatformSingleScreen(
@@ -412,6 +415,67 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    ClientSurveyAllInfoRoute.name: (routeData) {
+      final args = routeData.argsAs<ClientSurveyAllInfoRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ClientSurveyAllInfoScreen(
+          stepId: args.stepId,
+          quizzes: args.quizzes,
+          resultIds: args.resultIds,
+          isFromBranching: args.isFromBranching,
+          targetType: args.targetType,
+          branchingCurrentStep: args.branchingCurrentStep,
+          key: args.key,
+        ),
+      );
+    },
+    ClientSurveyBalanceWheelRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ClientSurveyBalanceWheelScreen(),
+      );
+    },
+    ClientSurveyBranchingRoute.name: (routeData) {
+      final args = routeData.argsAs<ClientSurveyBranchingRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ClientSurveyBranchingScreen(
+          key: args.key,
+          stepId: args.stepId,
+          targetType: args.targetType,
+        ),
+      );
+    },
+    ClientSurveyDoneRoute.name: (routeData) {
+      final args = routeData.argsAs<ClientSurveyDoneRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ClientSurveyDoneScreen(
+          key: args.key,
+          questions: args.questions,
+          surveyId: args.surveyId,
+        ),
+      );
+    },
+    ClientSurveyMainRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ClientSurveyMainScreen(),
+      );
+    },
+    ClientSurveyWatchRoute.name: (routeData) {
+      final args = routeData.argsAs<ClientSurveyWatchRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ClientSurveyWatchScreen(
+          surveyId: args.surveyId,
+          id: args.id,
+          expertId: args.expertId,
+          key: args.key,
+        ),
+      );
+    },
     ClientTargetMainRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -419,8 +483,7 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ClientWaterMainRoute.name: (routeData) {
-      final args = routeData.argsAs<ClientWaterMainRouteArgs>(
-          orElse: () => const ClientWaterMainRouteArgs());
+      final args = routeData.argsAs<ClientWaterMainRouteArgs>(orElse: () => const ClientWaterMainRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ClientWaterMainScreen(
@@ -473,6 +536,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const RootScreen(),
+      );
+    },
+    SplashMotivationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SplashMotivationScreen(),
       );
     },
   };
@@ -550,8 +619,7 @@ class AuthRegisterRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [AuthRegisterScreenClientThird]
-class AuthRegisterRouteClientThird
-    extends PageRouteInfo<AuthRegisterRouteClientThirdArgs> {
+class AuthRegisterRouteClientThird extends PageRouteInfo<AuthRegisterRouteClientThirdArgs> {
   AuthRegisterRouteClientThird({
     Key? key,
     bool isLogin = false,
@@ -571,8 +639,7 @@ class AuthRegisterRouteClientThird
 
   static const String name = 'AuthRegisterRouteClientThird';
 
-  static const PageInfo<AuthRegisterRouteClientThirdArgs> page =
-      PageInfo<AuthRegisterRouteClientThirdArgs>(name);
+  static const PageInfo<AuthRegisterRouteClientThirdArgs> page = PageInfo<AuthRegisterRouteClientThirdArgs>(name);
 }
 
 class AuthRegisterRouteClientThirdArgs {
@@ -599,8 +666,7 @@ class AuthRegisterRouteClientThirdArgs {
 
 /// generated route for
 /// [AuthRegisterScreenSecond]
-class AuthRegisterRouteSecond
-    extends PageRouteInfo<AuthRegisterRouteSecondArgs> {
+class AuthRegisterRouteSecond extends PageRouteInfo<AuthRegisterRouteSecondArgs> {
   AuthRegisterRouteSecond({
     required String phone,
     required String password,
@@ -618,8 +684,7 @@ class AuthRegisterRouteSecond
 
   static const String name = 'AuthRegisterRouteSecond';
 
-  static const PageInfo<AuthRegisterRouteSecondArgs> page =
-      PageInfo<AuthRegisterRouteSecondArgs>(name);
+  static const PageInfo<AuthRegisterRouteSecondArgs> page = PageInfo<AuthRegisterRouteSecondArgs>(name);
 }
 
 class AuthRegisterRouteSecondArgs {
@@ -643,8 +708,7 @@ class AuthRegisterRouteSecondArgs {
 
 /// generated route for
 /// [BottomNavigationBarClientPage]
-class BottomNavigationBarClientRoute
-    extends PageRouteInfo<BottomNavigationBarClientRouteArgs> {
+class BottomNavigationBarClientRoute extends PageRouteInfo<BottomNavigationBarClientRouteArgs> {
   BottomNavigationBarClientRoute({
     Key? key,
     int startPageIndex = 2,
@@ -660,8 +724,7 @@ class BottomNavigationBarClientRoute
 
   static const String name = 'BottomNavigationBarClientRoute';
 
-  static const PageInfo<BottomNavigationBarClientRouteArgs> page =
-      PageInfo<BottomNavigationBarClientRouteArgs>(name);
+  static const PageInfo<BottomNavigationBarClientRouteArgs> page = PageInfo<BottomNavigationBarClientRouteArgs>(name);
 }
 
 class BottomNavigationBarClientRouteArgs {
@@ -698,8 +761,7 @@ class ClientAddActivityRoute extends PageRouteInfo<ClientAddActivityRouteArgs> {
 
   static const String name = 'ClientAddActivityRoute';
 
-  static const PageInfo<ClientAddActivityRouteArgs> page =
-      PageInfo<ClientAddActivityRouteArgs>(name);
+  static const PageInfo<ClientAddActivityRouteArgs> page = PageInfo<ClientAddActivityRouteArgs>(name);
 }
 
 class ClientAddActivityRouteArgs {
@@ -740,8 +802,7 @@ class ClientAddFoodRoute extends PageRouteInfo<ClientAddFoodRouteArgs> {
 
   static const String name = 'ClientAddFoodRoute';
 
-  static const PageInfo<ClientAddFoodRouteArgs> page =
-      PageInfo<ClientAddFoodRouteArgs>(name);
+  static const PageInfo<ClientAddFoodRouteArgs> page = PageInfo<ClientAddFoodRouteArgs>(name);
 }
 
 class ClientAddFoodRouteArgs {
@@ -768,8 +829,7 @@ class ClientAddFoodRouteArgs {
 
 /// generated route for
 /// [ClientCalendarAddNewEventScreen]
-class ClientCalendarAddNewEventRoute
-    extends PageRouteInfo<ClientCalendarAddNewEventRouteArgs> {
+class ClientCalendarAddNewEventRoute extends PageRouteInfo<ClientCalendarAddNewEventRouteArgs> {
   ClientCalendarAddNewEventRoute({
     Key? key,
     DateTime? selectedDate,
@@ -785,8 +845,7 @@ class ClientCalendarAddNewEventRoute
 
   static const String name = 'ClientCalendarAddNewEventRoute';
 
-  static const PageInfo<ClientCalendarAddNewEventRouteArgs> page =
-      PageInfo<ClientCalendarAddNewEventRouteArgs>(name);
+  static const PageInfo<ClientCalendarAddNewEventRouteArgs> page = PageInfo<ClientCalendarAddNewEventRouteArgs>(name);
 }
 
 class ClientCalendarAddNewEventRouteArgs {
@@ -807,8 +866,7 @@ class ClientCalendarAddNewEventRouteArgs {
 
 /// generated route for
 /// [ClientCalendarCheckEventScreen]
-class ClientCalendarCheckEventRoute
-    extends PageRouteInfo<ClientCalendarCheckEventRouteArgs> {
+class ClientCalendarCheckEventRoute extends PageRouteInfo<ClientCalendarCheckEventRouteArgs> {
   ClientCalendarCheckEventRoute({
     Key? key,
     bool? fullDay,
@@ -838,8 +896,7 @@ class ClientCalendarCheckEventRoute
 
   static const String name = 'ClientCalendarCheckEventRoute';
 
-  static const PageInfo<ClientCalendarCheckEventRouteArgs> page =
-      PageInfo<ClientCalendarCheckEventRouteArgs>(name);
+  static const PageInfo<ClientCalendarCheckEventRouteArgs> page = PageInfo<ClientCalendarCheckEventRouteArgs>(name);
 }
 
 class ClientCalendarCheckEventRouteArgs {
@@ -923,8 +980,7 @@ class ClientFoodDiaryAddDrinkRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClientFoodDiaryAddDrinkSecondScreen]
-class ClientFoodDiaryAddDrinkSecondRoute
-    extends PageRouteInfo<ClientFoodDiaryAddDrinkSecondRouteArgs> {
+class ClientFoodDiaryAddDrinkSecondRoute extends PageRouteInfo<ClientFoodDiaryAddDrinkSecondRouteArgs> {
   ClientFoodDiaryAddDrinkSecondRoute({
     Key? key,
     DrinkView? view,
@@ -942,8 +998,7 @@ class ClientFoodDiaryAddDrinkSecondRoute
 
   static const String name = 'ClientFoodDiaryAddDrinkSecondRoute';
 
-  static const PageInfo<ClientFoodDiaryAddDrinkSecondRouteArgs> page =
-      PageInfo<ClientFoodDiaryAddDrinkSecondRouteArgs>(name);
+  static const PageInfo<ClientFoodDiaryAddDrinkSecondRouteArgs> page = PageInfo<ClientFoodDiaryAddDrinkSecondRouteArgs>(name);
 }
 
 class ClientFoodDiaryAddDrinkSecondRouteArgs {
@@ -981,8 +1036,7 @@ class ClientFoodDiaryDietMainRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClientFoodDiaryEditFoodScreen]
-class ClientFoodDiaryEditFoodRoute
-    extends PageRouteInfo<ClientFoodDiaryEditFoodRouteArgs> {
+class ClientFoodDiaryEditFoodRoute extends PageRouteInfo<ClientFoodDiaryEditFoodRouteArgs> {
   ClientFoodDiaryEditFoodRoute({
     Key? key,
     required ItemMeal view,
@@ -1002,8 +1056,7 @@ class ClientFoodDiaryEditFoodRoute
 
   static const String name = 'ClientFoodDiaryEditFoodRoute';
 
-  static const PageInfo<ClientFoodDiaryEditFoodRouteArgs> page =
-      PageInfo<ClientFoodDiaryEditFoodRouteArgs>(name);
+  static const PageInfo<ClientFoodDiaryEditFoodRouteArgs> page = PageInfo<ClientFoodDiaryEditFoodRouteArgs>(name);
 }
 
 class ClientFoodDiaryEditFoodRouteArgs {
@@ -1044,8 +1097,7 @@ class ClientFoodDiaryMainRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClientFoodDiarySingleDietScreen]
-class ClientFoodDiarySingleDietRoute
-    extends PageRouteInfo<ClientFoodDiarySingleDietRouteArgs> {
+class ClientFoodDiarySingleDietRoute extends PageRouteInfo<ClientFoodDiarySingleDietRouteArgs> {
   ClientFoodDiarySingleDietRoute({
     Key? key,
     required int id,
@@ -1061,8 +1113,7 @@ class ClientFoodDiarySingleDietRoute
 
   static const String name = 'ClientFoodDiarySingleDietRoute';
 
-  static const PageInfo<ClientFoodDiarySingleDietRouteArgs> page =
-      PageInfo<ClientFoodDiarySingleDietRouteArgs>(name);
+  static const PageInfo<ClientFoodDiarySingleDietRouteArgs> page = PageInfo<ClientFoodDiarySingleDietRouteArgs>(name);
 }
 
 class ClientFoodDiarySingleDietRouteArgs {
@@ -1109,8 +1160,7 @@ class ClientMainMainRoute extends PageRouteInfo<ClientMainMainRouteArgs> {
 
   static const String name = 'ClientMainMainRoute';
 
-  static const PageInfo<ClientMainMainRouteArgs> page =
-      PageInfo<ClientMainMainRouteArgs>(name);
+  static const PageInfo<ClientMainMainRouteArgs> page = PageInfo<ClientMainMainRouteArgs>(name);
 }
 
 class ClientMainMainRouteArgs {
@@ -1126,8 +1176,7 @@ class ClientMainMainRouteArgs {
 
 /// generated route for
 /// [ClientMessageNewMessageScreen]
-class ClientMessageNewMessageRoute
-    extends PageRouteInfo<ClientMessageNewMessageRouteArgs> {
+class ClientMessageNewMessageRoute extends PageRouteInfo<ClientMessageNewMessageRouteArgs> {
   ClientMessageNewMessageRoute({
     required List<int> listOfUsers,
     Key? key,
@@ -1143,8 +1192,7 @@ class ClientMessageNewMessageRoute
 
   static const String name = 'ClientMessageNewMessageRoute';
 
-  static const PageInfo<ClientMessageNewMessageRouteArgs> page =
-      PageInfo<ClientMessageNewMessageRouteArgs>(name);
+  static const PageInfo<ClientMessageNewMessageRouteArgs> page = PageInfo<ClientMessageNewMessageRouteArgs>(name);
 }
 
 class ClientMessageNewMessageRouteArgs {
@@ -1165,8 +1213,7 @@ class ClientMessageNewMessageRouteArgs {
 
 /// generated route for
 /// [ClientMessagesChatScreen]
-class ClientMessagesChatRoute
-    extends PageRouteInfo<ClientMessagesChatRouteArgs> {
+class ClientMessagesChatRoute extends PageRouteInfo<ClientMessagesChatRouteArgs> {
   ClientMessagesChatRoute({
     Key? key,
     required String chatId,
@@ -1190,8 +1237,7 @@ class ClientMessagesChatRoute
 
   static const String name = 'ClientMessagesChatRoute';
 
-  static const PageInfo<ClientMessagesChatRouteArgs> page =
-      PageInfo<ClientMessagesChatRouteArgs>(name);
+  static const PageInfo<ClientMessagesChatRouteArgs> page = PageInfo<ClientMessagesChatRouteArgs>(name);
 }
 
 class ClientMessagesChatRouteArgs {
@@ -1238,8 +1284,7 @@ class ClientMessagesContainerRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClientMessagesMainScreen]
-class ClientMessagesMainRoute
-    extends PageRouteInfo<ClientMessagesMainRouteArgs> {
+class ClientMessagesMainRoute extends PageRouteInfo<ClientMessagesMainRouteArgs> {
   ClientMessagesMainRoute({
     Key? key,
     int tabIndex = 0,
@@ -1255,8 +1300,7 @@ class ClientMessagesMainRoute
 
   static const String name = 'ClientMessagesMainRoute';
 
-  static const PageInfo<ClientMessagesMainRouteArgs> page =
-      PageInfo<ClientMessagesMainRouteArgs>(name);
+  static const PageInfo<ClientMessagesMainRouteArgs> page = PageInfo<ClientMessagesMainRouteArgs>(name);
 }
 
 class ClientMessagesMainRouteArgs {
@@ -1303,8 +1347,7 @@ class ClientMyDayMainRoute extends PageRouteInfo<ClientMyDayMainRouteArgs> {
 
   static const String name = 'ClientMyDayMainRoute';
 
-  static const PageInfo<ClientMyDayMainRouteArgs> page =
-      PageInfo<ClientMyDayMainRouteArgs>(name);
+  static const PageInfo<ClientMyDayMainRouteArgs> page = PageInfo<ClientMyDayMainRouteArgs>(name);
 }
 
 class ClientMyDayMainRouteArgs {
@@ -1315,6 +1358,43 @@ class ClientMyDayMainRouteArgs {
   @override
   String toString() {
     return 'ClientMyDayMainRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [ClientPhysicalSurveyScreen]
+class ClientPhysicalSurveyRoute extends PageRouteInfo<ClientPhysicalSurveyRouteArgs> {
+  ClientPhysicalSurveyRoute({
+    Key? key,
+    required int stepId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ClientPhysicalSurveyRoute.name,
+          args: ClientPhysicalSurveyRouteArgs(
+            key: key,
+            stepId: stepId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ClientPhysicalSurveyRoute';
+
+  static const PageInfo<ClientPhysicalSurveyRouteArgs> page = PageInfo<ClientPhysicalSurveyRouteArgs>(name);
+}
+
+class ClientPhysicalSurveyRouteArgs {
+  const ClientPhysicalSurveyRouteArgs({
+    this.key,
+    required this.stepId,
+  });
+
+  final Key? key;
+
+  final int stepId;
+
+  @override
+  String toString() {
+    return 'ClientPhysicalSurveyRouteArgs{key: $key, stepId: $stepId}';
   }
 }
 
@@ -1376,8 +1456,7 @@ class ClientProfileRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClientRecipesCardInfoScreen]
-class ClientRecipesCardInfoRoute
-    extends PageRouteInfo<ClientRecipesCardInfoRouteArgs> {
+class ClientRecipesCardInfoRoute extends PageRouteInfo<ClientRecipesCardInfoRouteArgs> {
   ClientRecipesCardInfoRoute({
     Key? key,
     required int recipeId,
@@ -1395,8 +1474,7 @@ class ClientRecipesCardInfoRoute
 
   static const String name = 'ClientRecipesCardInfoRoute';
 
-  static const PageInfo<ClientRecipesCardInfoRouteArgs> page =
-      PageInfo<ClientRecipesCardInfoRouteArgs>(name);
+  static const PageInfo<ClientRecipesCardInfoRouteArgs> page = PageInfo<ClientRecipesCardInfoRouteArgs>(name);
 }
 
 class ClientRecipesCardInfoRouteArgs {
@@ -1448,8 +1526,7 @@ class ClientRecipesSavedListRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClientRecommendationMainScreen]
-class ClientRecommendationMainRoute
-    extends PageRouteInfo<ClientRecommendationMainRouteArgs> {
+class ClientRecommendationMainRoute extends PageRouteInfo<ClientRecommendationMainRouteArgs> {
   ClientRecommendationMainRoute({
     Key? key,
     required bool isFormSurvey,
@@ -1465,8 +1542,7 @@ class ClientRecommendationMainRoute
 
   static const String name = 'ClientRecommendationMainRoute';
 
-  static const PageInfo<ClientRecommendationMainRouteArgs> page =
-      PageInfo<ClientRecommendationMainRouteArgs>(name);
+  static const PageInfo<ClientRecommendationMainRouteArgs> page = PageInfo<ClientRecommendationMainRouteArgs>(name);
 }
 
 class ClientRecommendationMainRouteArgs {
@@ -1487,8 +1563,7 @@ class ClientRecommendationMainRouteArgs {
 
 /// generated route for
 /// [ClientRecommendationPlatformSingleScreen]
-class ClientRecommendationPlatformSingleRoute
-    extends PageRouteInfo<ClientRecommendationPlatformSingleRouteArgs> {
+class ClientRecommendationPlatformSingleRoute extends PageRouteInfo<ClientRecommendationPlatformSingleRouteArgs> {
   ClientRecommendationPlatformSingleRoute({
     Key? key,
     required int id,
@@ -1508,8 +1583,7 @@ class ClientRecommendationPlatformSingleRoute
 
   static const String name = 'ClientRecommendationPlatformSingleRoute';
 
-  static const PageInfo<ClientRecommendationPlatformSingleRouteArgs> page =
-      PageInfo<ClientRecommendationPlatformSingleRouteArgs>(name);
+  static const PageInfo<ClientRecommendationPlatformSingleRouteArgs> page = PageInfo<ClientRecommendationPlatformSingleRouteArgs>(name);
 }
 
 class ClientRecommendationPlatformSingleRouteArgs {
@@ -1536,8 +1610,7 @@ class ClientRecommendationPlatformSingleRouteArgs {
 
 /// generated route for
 /// [ClientRecommendationWatchScreen]
-class ClientRecommendationWatchRoute
-    extends PageRouteInfo<ClientRecommendationWatchRouteArgs> {
+class ClientRecommendationWatchRoute extends PageRouteInfo<ClientRecommendationWatchRouteArgs> {
   ClientRecommendationWatchRoute({
     required int id,
     required String name,
@@ -1555,8 +1628,7 @@ class ClientRecommendationWatchRoute
 
   static const String name = 'ClientRecommendationWatchRoute';
 
-  static const PageInfo<ClientRecommendationWatchRouteArgs> page =
-      PageInfo<ClientRecommendationWatchRouteArgs>(name);
+  static const PageInfo<ClientRecommendationWatchRouteArgs> page = PageInfo<ClientRecommendationWatchRouteArgs>(name);
 }
 
 class ClientRecommendationWatchRouteArgs {
@@ -1678,8 +1750,7 @@ class ClientSensorsWeightRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClientSetPersonalPlanScreen]
-class ClientSetPersonalPlanRoute
-    extends PageRouteInfo<ClientSetPersonalPlanRouteArgs> {
+class ClientSetPersonalPlanRoute extends PageRouteInfo<ClientSetPersonalPlanRouteArgs> {
   ClientSetPersonalPlanRoute({
     Key? key,
     required int height,
@@ -1697,8 +1768,7 @@ class ClientSetPersonalPlanRoute
 
   static const String name = 'ClientSetPersonalPlanRoute';
 
-  static const PageInfo<ClientSetPersonalPlanRouteArgs> page =
-      PageInfo<ClientSetPersonalPlanRouteArgs>(name);
+  static const PageInfo<ClientSetPersonalPlanRouteArgs> page = PageInfo<ClientSetPersonalPlanRouteArgs>(name);
 }
 
 class ClientSetPersonalPlanRouteArgs {
@@ -1736,8 +1806,7 @@ class ClientSetTargetRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ClientSetTargetWeightScreen]
-class ClientSetTargetWeightRoute
-    extends PageRouteInfo<ClientSetTargetWeightRouteArgs> {
+class ClientSetTargetWeightRoute extends PageRouteInfo<ClientSetTargetWeightRouteArgs> {
   ClientSetTargetWeightRoute({
     Key? key,
     required List<NextStep> nextStep,
@@ -1753,8 +1822,7 @@ class ClientSetTargetWeightRoute
 
   static const String name = 'ClientSetTargetWeightRoute';
 
-  static const PageInfo<ClientSetTargetWeightRouteArgs> page =
-      PageInfo<ClientSetTargetWeightRouteArgs>(name);
+  static const PageInfo<ClientSetTargetWeightRouteArgs> page = PageInfo<ClientSetTargetWeightRouteArgs>(name);
 }
 
 class ClientSetTargetWeightRouteArgs {
@@ -1770,6 +1838,227 @@ class ClientSetTargetWeightRouteArgs {
   @override
   String toString() {
     return 'ClientSetTargetWeightRouteArgs{key: $key, nextStep: $nextStep}';
+  }
+}
+
+/// generated route for
+/// [ClientSurveyAllInfoScreen]
+class ClientSurveyAllInfoRoute extends PageRouteInfo<ClientSurveyAllInfoRouteArgs> {
+  ClientSurveyAllInfoRoute({
+    required int stepId,
+    QuizItem? quizzes,
+    List<int>? resultIds,
+    bool isFromBranching = false,
+    required String targetType,
+    int? branchingCurrentStep,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ClientSurveyAllInfoRoute.name,
+          args: ClientSurveyAllInfoRouteArgs(
+            stepId: stepId,
+            quizzes: quizzes,
+            resultIds: resultIds,
+            isFromBranching: isFromBranching,
+            targetType: targetType,
+            branchingCurrentStep: branchingCurrentStep,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ClientSurveyAllInfoRoute';
+
+  static const PageInfo<ClientSurveyAllInfoRouteArgs> page = PageInfo<ClientSurveyAllInfoRouteArgs>(name);
+}
+
+class ClientSurveyAllInfoRouteArgs {
+  const ClientSurveyAllInfoRouteArgs({
+    required this.stepId,
+    this.quizzes,
+    this.resultIds,
+    this.isFromBranching = false,
+    required this.targetType,
+    this.branchingCurrentStep,
+    this.key,
+  });
+
+  final int stepId;
+
+  final QuizItem? quizzes;
+
+  final List<int>? resultIds;
+
+  final bool isFromBranching;
+
+  final String targetType;
+
+  final int? branchingCurrentStep;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ClientSurveyAllInfoRouteArgs{stepId: $stepId, quizzes: $quizzes, resultIds: $resultIds, isFromBranching: $isFromBranching, targetType: $targetType, branchingCurrentStep: $branchingCurrentStep, key: $key}';
+  }
+}
+
+/// generated route for
+/// [ClientSurveyBalanceWheelScreen]
+class ClientSurveyBalanceWheelRoute extends PageRouteInfo<void> {
+  const ClientSurveyBalanceWheelRoute({List<PageRouteInfo>? children})
+      : super(
+          ClientSurveyBalanceWheelRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ClientSurveyBalanceWheelRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ClientSurveyBranchingScreen]
+class ClientSurveyBranchingRoute extends PageRouteInfo<ClientSurveyBranchingRouteArgs> {
+  ClientSurveyBranchingRoute({
+    Key? key,
+    required int stepId,
+    required String targetType,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ClientSurveyBranchingRoute.name,
+          args: ClientSurveyBranchingRouteArgs(
+            key: key,
+            stepId: stepId,
+            targetType: targetType,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ClientSurveyBranchingRoute';
+
+  static const PageInfo<ClientSurveyBranchingRouteArgs> page = PageInfo<ClientSurveyBranchingRouteArgs>(name);
+}
+
+class ClientSurveyBranchingRouteArgs {
+  const ClientSurveyBranchingRouteArgs({
+    this.key,
+    required this.stepId,
+    required this.targetType,
+  });
+
+  final Key? key;
+
+  final int stepId;
+
+  final String targetType;
+
+  @override
+  String toString() {
+    return 'ClientSurveyBranchingRouteArgs{key: $key, stepId: $stepId, targetType: $targetType}';
+  }
+}
+
+/// generated route for
+/// [ClientSurveyDoneScreen]
+class ClientSurveyDoneRoute extends PageRouteInfo<ClientSurveyDoneRouteArgs> {
+  ClientSurveyDoneRoute({
+    Key? key,
+    required List<QuestionItem> questions,
+    required int surveyId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ClientSurveyDoneRoute.name,
+          args: ClientSurveyDoneRouteArgs(
+            key: key,
+            questions: questions,
+            surveyId: surveyId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ClientSurveyDoneRoute';
+
+  static const PageInfo<ClientSurveyDoneRouteArgs> page = PageInfo<ClientSurveyDoneRouteArgs>(name);
+}
+
+class ClientSurveyDoneRouteArgs {
+  const ClientSurveyDoneRouteArgs({
+    this.key,
+    required this.questions,
+    required this.surveyId,
+  });
+
+  final Key? key;
+
+  final List<QuestionItem> questions;
+
+  final int surveyId;
+
+  @override
+  String toString() {
+    return 'ClientSurveyDoneRouteArgs{key: $key, questions: $questions, surveyId: $surveyId}';
+  }
+}
+
+/// generated route for
+/// [ClientSurveyMainScreen]
+class ClientSurveyMainRoute extends PageRouteInfo<void> {
+  const ClientSurveyMainRoute({List<PageRouteInfo>? children})
+      : super(
+          ClientSurveyMainRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ClientSurveyMainRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ClientSurveyWatchScreen]
+class ClientSurveyWatchRoute extends PageRouteInfo<ClientSurveyWatchRouteArgs> {
+  ClientSurveyWatchRoute({
+    required int surveyId,
+    required int id,
+    int? expertId,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ClientSurveyWatchRoute.name,
+          args: ClientSurveyWatchRouteArgs(
+            surveyId: surveyId,
+            id: id,
+            expertId: expertId,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ClientSurveyWatchRoute';
+
+  static const PageInfo<ClientSurveyWatchRouteArgs> page = PageInfo<ClientSurveyWatchRouteArgs>(name);
+}
+
+class ClientSurveyWatchRouteArgs {
+  const ClientSurveyWatchRouteArgs({
+    required this.surveyId,
+    required this.id,
+    this.expertId,
+    this.key,
+  });
+
+  final int surveyId;
+
+  final int id;
+
+  final int? expertId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ClientSurveyWatchRouteArgs{surveyId: $surveyId, id: $id, expertId: $expertId, key: $key}';
   }
 }
 
@@ -1805,8 +2094,7 @@ class ClientWaterMainRoute extends PageRouteInfo<ClientWaterMainRouteArgs> {
 
   static const String name = 'ClientWaterMainRoute';
 
-  static const PageInfo<ClientWaterMainRouteArgs> page =
-      PageInfo<ClientWaterMainRouteArgs>(name);
+  static const PageInfo<ClientWaterMainRouteArgs> page = PageInfo<ClientWaterMainRouteArgs>(name);
 }
 
 class ClientWaterMainRouteArgs {
@@ -1879,8 +2167,7 @@ class ImageViewerRoute extends PageRouteInfo<ImageViewerRouteArgs> {
 
   static const String name = 'ImageViewerRoute';
 
-  static const PageInfo<ImageViewerRouteArgs> page =
-      PageInfo<ImageViewerRouteArgs>(name);
+  static const PageInfo<ImageViewerRouteArgs> page = PageInfo<ImageViewerRouteArgs>(name);
 }
 
 class ImageViewerRouteArgs {
@@ -1937,8 +2224,7 @@ class PdfViewerRoute extends PageRouteInfo<PdfViewerRouteArgs> {
 
   static const String name = 'PdfViewerRoute';
 
-  static const PageInfo<PdfViewerRouteArgs> page =
-      PageInfo<PdfViewerRouteArgs>(name);
+  static const PageInfo<PdfViewerRouteArgs> page = PageInfo<PdfViewerRouteArgs>(name);
 }
 
 class PdfViewerRouteArgs {
@@ -1979,6 +2265,20 @@ class RootRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'RootRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SplashMotivationScreen]
+class SplashMotivationRoute extends PageRouteInfo<void> {
+  const SplashMotivationRoute({List<PageRouteInfo>? children})
+      : super(
+          SplashMotivationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SplashMotivationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

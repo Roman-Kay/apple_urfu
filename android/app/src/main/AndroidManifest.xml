@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.apple">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.garnetbook">
     !-- Check whether Health Connect is installed or not -->
     <queries>
         <package android:name="com.google.android.apps.healthdata" />
@@ -53,7 +53,7 @@
     <uses-permission android:name="android.permission.health.READ_FLOORS_CLIMBED"/>
 
 
-    <application android:label="Apple"
+    <application android:label="Garnetbook"
         android:name="${applicationName}" android:icon="@mipmap/ic_launcher">
         <activity android:name=".MainActivity"
             android:exported="true"

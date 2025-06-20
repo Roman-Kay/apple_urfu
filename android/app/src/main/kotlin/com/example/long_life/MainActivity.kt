@@ -1,4 +1,4 @@
-package com.example.apple
+package com.example.garnetbook
 
 import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.Manifest.permission.ACTIVITY_RECOGNITION

@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class AuthGuard extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) async {
-    router.push(AuthLoginRoute());
+    router.push(SplashMotivationRoute());
     final prefs = await SharedPreferences.getInstance();
     final isLogged = prefs.getBool('isLogged') == null ? false : prefs.getBool('isLogged');
 
